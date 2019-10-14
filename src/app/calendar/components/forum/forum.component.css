@@ -1,0 +1,17 @@
+.postBtn {
+  position: absolute;
+  right: 69px;
+  bottom: 18px;
+  z-index: 1000;
+}
+
+.example-card {
+  max-width: 55%;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+
+.example-header-image {
+  background-image: url('https://cdn1.iconfinder.com/data/icons/navigation-elements/512/user-login-man-human-body-mobile-person-512.png');
+  background-size: cover;
+}

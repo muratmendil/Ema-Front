@@ -1,0 +1,54 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <app-objectifs-sidebar></app-objectifs-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="content" fxLayout="row">
+          <div class="tasks" fxFlex="50%">
+              <h3>Vos taches</h3>
+              <div *ngIf="showImage | async">
+                  <h3>{{text1}}</h3>
+              </div>
+              <div>
+                  <mat-grid-list cols="1" rowHeight="2:1">
+                      <mat-grid-tile *ngFor="let task of tasks$ | async">
+                          <mat-card class="example-card">
+                              <mat-card-header>
+                                <mat-card-title>{{task.title}}</mat-card-title>
+                                <div *ngIf="getStarted(task) == 'running'" class="state running">
+                                  <p>En cours</p>
+                                </div>
+                                <div *ngIf="getStarted(task) == 'finish'" class="state finish">
+                                  <p>Terminé</p>
+                                </div>
+                              </mat-card-header>
+                              <mat-card-actions>
+                                <button mat-button (click)="goToDetails(task)"><mat-icon>pageview</mat-icon></button>
+                                <button mat-button (click)="updateTask(task)"><mat-icon>edit</mat-icon></button>
+                                <button mat-button (click)="deleteTask(task)"><mat-icon>delete_forever</mat-icon></button>
+                                <button mat-button class="note-btn" (click)="noteTask(task)" [disabled]="isDesabled(task)"><mat-icon>book_mark</mat-icon></button>
+                              </mat-card-actions>
+                            </mat-card>
+                      </mat-grid-tile>
+                  </mat-grid-list>
+              </div>
+          </div>
+          <div class="graphic" fxFlex="50%">
+            <div *ngIf="showImage | async" fxLayoutAlign="center center">
+                <h3>{{text2}}</h3>
+            </div>
+            <div *ngIf="tasks$ | async">
+              <canvas baseChart width="400" height="400"
+                  [datasets]="lineChartData | async"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+              </canvas>
+            </div>
+        </div>
+        </div>
+  </mat-drawer-content>
+</mat-drawer-container>

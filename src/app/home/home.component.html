@@ -1,0 +1,18 @@
+<div class="login-page" fxLayoutAlign="center center">
+      <div class="form">
+          <h1>Ema apps</h1>
+          <form role="form" [formGroup]="myForm" (ngSubmit)="logUser(myForm.value)">
+              <div class="form-content">
+                  <mat-form-field class="form-group demo-full-width">
+                      <input matInput placeholder="Adresse email" class="form-control input-underline" required name="email" [formControl]="myForm.controls['email']">
+                  </mat-form-field><br/>
+                  <mat-form-field class="form-group demo-full-width">
+                      <input matInput placeholder="Mot de passe" class="form-control input-underline" type="password" required name="password" [formControl]="myForm.controls['password']">
+                  </mat-form-field>
+              </div>
+              <button mat-raised-button type="submit" [disabled]="!myForm.valid" color="primary">Connexion</button>
+              <p></p>
+          </form>
+          <span>Pas encore inscrit?</span><button mat-button (click)="goToSignUpPage()">Cliquer ici!</button>
+      </div>
+</div>

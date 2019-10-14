@@ -1,0 +1,23 @@
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <app-home-sidebar></app-home-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="home-container" fxLayout="row">
+      <div fxFlex="3%">
+      </div>
+      <div id="calendar" *ngIf="calendarOptions" fxFlex>
+        <ng-fullcalendar #ucCalendar [options]="calendarOptions" (select)="select($event.detail)" (eventClick)="eventClick($event.detail)"
+          (eventResize)="updateEvent($event.detail)" (eventRender)="eventRender($event.detail, $element, $view)"></ng-fullcalendar>
+      </div>
+      <div fxFlex="3%">
+      </div>
+    
+      <div class="objectifBtn">
+        <button routerLink="/calendar/new-objectif" routerLinkActive="active" mat-fab color="warn" class="custom-mat-fab"
+          id="newObjectifButton">+</button>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

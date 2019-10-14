@@ -1,0 +1,53 @@
+#newObjectifContainer{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 4%;
+
+}
+
+#newObjectifContainer form{
+    width: 100%;
+}
+
+#newObjectifContainer form .form-group button{
+    width: 100%;
+}
+
+#newObjectifContainer form .form-group{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+#newObjectifContainer form .form-group #dateLeft{
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+}
+
+#newObjectifContainer form .form-group #dateRight{
+    width: 48%;
+    float: right;
+}
+
+
+#newObjectifContainer mat-form-field{
+    width: 100%;
+}
+
+#newObjectifContainer form .form-group #color{
+    width: 100%;
+}
+
+
+#newObjectifContainer form .form-group #color span{
+    float: left;
+    width: auto;
+    margin-right: 10%;
+}
+
+#newObjectifContainer form .form-group #color mat-form-field{
+    width: 30%;
+    top: -12px;
+    float: right;
+}

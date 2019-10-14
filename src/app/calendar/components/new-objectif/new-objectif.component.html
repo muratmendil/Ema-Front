@@ -1,0 +1,45 @@
+<div id="newObjectifContainer">
+    <form [formGroup]="myForm" (ngSubmit)="createObjectif(myForm.value)">
+        <div class="form-group">
+            <mat-form-field class="demo-full-width">
+                <input matInput placeholder="Titre" class="form-control" required name="title" [formControl]="myForm.controls['title']">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <div id="dateLeft">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="startPicker" placeholder="Début" class="form-control" required name="start" [formControl]="myForm.controls['start']">
+                    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startPicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div id="dateRight">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="endPicker" placeholder="Fin" class="form-control" required name="end" [formControl]="myForm.controls['end']">
+                    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endPicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="form-group">     
+              <div id="color" fxLayout="row">
+                <div fxFlex="48%">
+                    <span>Choississez votre couleur :</span>
+                    <mat-form-field>
+                        <input matInput [value]="color" ([ngModel])="defaultColor"
+                        [style.background]="color"
+                        [(colorPicker)]="color" name="color" [formControl]="myForm.controls['color']"
+                        (colorPickerClose)="changeColor(color)" />
+                      </mat-form-field>
+                </div>
+                <div fxFlex="5%">
+                </div>
+                <div fxFlex>
+                </div>
+              </div>         
+        </div>
+        <div class="form-group">     
+            <button mat-raised-button type="submit" [disabled]="!myForm.valid" color="primary">Créer un obectif</button>
+        </div>
+    </form>
+</div>

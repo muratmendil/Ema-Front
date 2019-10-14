@@ -1,0 +1,23 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+    <mat-card-subtitle>{{user.birthDate}}</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>{{user.firstName}} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>{{user.lastName}} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>{{user.email}} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>{{user.birthDate}} </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Modifier</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,9 @@
+<div id="objectifs" fxLayout="column">
+    <div class="objectif" *ngIf="showNoObjectif  | async">
+        <h3>{{text}}</h3>
+    </div>
+    <div class="objectif" *ngFor="let objectif of objectifs$ | async">
+        <span routerLink="/calendar/objectif/{{objectif.id}}" routerLinkActive="active-link">{{objectif.title}}</span>
+    </div>
+   
+</div>

@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span id="ema-span" (click)="toggleDrawer()">EMA-CALENDAR</span>
+    <span class="example-spacer">
+      <button mat-button [routerLink] ="['/calendar/home']" routerLinkActive="active-link">HOME</button>
+      <button mat-button [routerLink] ="['/calendar/profil']" routerLinkActive="active-link">PROFIL</button>
+      <button mat-button [routerLink] ="['/calendar/objectif']" routerLinkActive="active-link">OBJECTIF</button>
+      <button mat-button [routerLink] ="['/calendar/forum']" routerLinkActive="active-link">FORUM</button>
+    </span>
+    <a mat-button [matMenuTriggerFor]="menu"><mat-icon class="example-icon">face</mat-icon></a>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink] ="['/calendar/profil']">Profil</button>
+      <button mat-menu-item (click)="deconnexion()">Deconnexion</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

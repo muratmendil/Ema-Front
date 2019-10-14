@@ -1,0 +1,36 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <app-objectifs-sidebar></app-objectifs-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+      <div *ngIf="showNoObjectif"    
+        fxFlexFill
+        fxLayoutAlign="center center">
+          <h3>Vos Objectifs</h3>
+
+          <h3>Aucun objectif</h3>
+      </div>
+      <h3>Vos Objectifs</h3>
+          <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-grid-tile *ngFor="let objectif of objectifs$ | async">
+                  <mat-card class="example-card">
+                      <mat-card-header>
+                        <mat-card-title>{{objectif.title}}</mat-card-title>
+                        <div *ngIf="getStarted(objectif) == 'running'" class="state running">
+                          <p>En cours</p>
+                        </div>
+                        <div *ngIf="getStarted(objectif) == 'finish'" class="state finish">
+                          <p>Terminé</p>
+                        </div>
+                      </mat-card-header>
+                      <mat-card-actions>
+                        <button mat-button (click)="goToDetails(objectif)"><mat-icon>pageview</mat-icon></button>
+                        <button mat-button (click)="updateObjectif(objectif)" [disabled]="true"><mat-icon>edit</mat-icon></button>
+                        <button mat-button (click)="deleteObjectif(objectif)"><mat-icon>delete_forever</mat-icon></button>
+                        <p>{{objectif.tasks.length}} tache</p>
+                      </mat-card-actions>
+                    </mat-card>
+              </mat-grid-tile>
+            </mat-grid-list>
+  </mat-drawer-content>
+</mat-drawer-container>

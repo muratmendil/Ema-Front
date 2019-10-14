@@ -1,0 +1,18 @@
+<div id="newPostContainer">
+  <form [formGroup]="myForm" (ngSubmit)="createPost(myForm.value)">
+    <div class="form-group">
+      <mat-form-field class="demo-full-width">
+        <input matInput placeholder="Titre" class="form-control" required name="title"
+          [formControl]="myForm.controls['title']">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="demo-full-width">
+        <textarea matInput placeholder="Message" class="form-control" required name="message"
+          [formControl]="myForm.controls['message']"></textarea>
+      </mat-form-field>
+      <div class="form-group">
+        <button mat-raised-button type="submit" [disabled]="!myForm.valid" color="primary">Créer un Post</button>
+      </div>
+    </div>
+  </form>
+</div>

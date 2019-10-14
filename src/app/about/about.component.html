@@ -1,0 +1,27 @@
+<div class="register-page" fxLayoutAlign="center center">
+    <div class="form">
+        <h1>ema</h1>
+        <form role="form" [formGroup]="myForm" (ngSubmit)="signUpUser(myForm.value)">
+          <div class="form-content">
+              <mat-form-field class="form-group demo-full-width">
+                  <input matInput placeholder="Prénom" class="form-control input-underline" type="text" required name="firstName" [formControl]="myForm.controls['firstName']">
+              </mat-form-field>
+              <mat-form-field class="form-group demo-full-width">
+                  <input matInput placeholder="Nom" class="form-control input-underline" type="text" required name="lastName" [formControl]="myForm.controls['lastName']">
+              </mat-form-field>
+              <mat-form-field class="form-group demo-full-width">
+                  <input matInput placeholder="Email" class="form-control input-underline" required name="email" [formControl]="myForm.controls['email']">
+              </mat-form-field>
+              <mat-form-field class="form-group demo-full-width">
+                  <input matInput placeholder="date de naissance" class="form-control input-underline" type="text" required name="birthDate" [formControl]="myForm.controls['birthDate']">
+              </mat-form-field>
+              <mat-form-field class="form-group demo-full-width">
+                  <input matInput placeholder="Password" class="form-control input-underline" type="password" required name="password" [formControl]="myForm.controls['password']">
+              </mat-form-field>
+          </div>
+          <button mat-raised-button type="submit" [disabled]="!myForm.valid" color="primary">Valider</button>
+          <p></p>
+          <span>Vous avez déja un compte?</span><button mat-button (click)="goToSignInPage()">Cliquer ici!</button>
+        </form> 
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.example-card {
+    max-width: 35%;
+    margin-left: 35%;
+    margin-top: 5%;
+  }
+  
+  .example-header-image {
+    background-image: url('https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png');
+    background-size: cover;
+  }

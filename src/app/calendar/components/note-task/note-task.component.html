@@ -1,0 +1,18 @@
+<div class="note-task-page">
+  <div class="form">
+      <h1>Taches accomplite</h1>
+      <form role="form" [formGroup]="myForm2" (ngSubmit)="saveNote(myForm2.value)">
+          <div class="form-content">
+              <mat-form-field class="form-group demo-full-width">
+                  <input matInput placeholder="Note" class="form-control input-underline" required name="note" [formControl]="myForm2.controls['note']">
+              </mat-form-field>
+          </div>
+          <div *ngIf="task.successLevel">
+            <button mat-raised-button type="submit" [disabled]="!myForm2.valid || task.successLevel.toString() == myForm2.controls['note'].value" color="primary">Modifier</button>
+          </div>
+          <div *ngIf="!task.successLevel">
+            <button mat-raised-button type="submit" [disabled]="!myForm2.valid || task.successLevel.toString() == myForm2.controls['note'].value" color="primary">Enregistrer</button>
+          </div>
+      </form>
+  </div>
+</div>

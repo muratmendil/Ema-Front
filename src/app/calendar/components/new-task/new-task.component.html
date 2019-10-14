@@ -1,0 +1,64 @@
+<form [formGroup]="myForm" (ngSubmit)="createTask(myForm.value)">
+    <div class="form-group">
+        <mat-form-field class="demo-full-width">
+            <input matInput placeholder="Titre" class="form-control" required name="title" [formControl]="myForm.controls['title']">
+        </mat-form-field>
+    </div>
+    <div class="form-group">
+        <div id="date">
+            <mat-form-field>
+                <input matInput [matDatepicker]="startPicker" placeholder="Début" class="form-control" required name="startDate" [formControl]="myForm.controls['startDate']">
+                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div id="time">
+            <mat-form-field>
+                <mat-select placeholder="Heure de début" required name="startTime" [formControl]="myForm.controls['startTime']">
+                    <mat-option *ngFor="let time of times" [value]="time">
+                  {{time}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="date">
+            <mat-form-field>
+                <input matInput [matDatepicker]="endPicker" placeholder="Fin" class="form-control" required name="endDate" [formControl]="myForm.controls['endDate']">
+                <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                <mat-datepicker #endPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div id="time">
+            <mat-form-field>
+              <mat-select placeholder="Heure de fin" required name="endTime" [formControl]="myForm.controls['endTime']">
+                <mat-option *ngFor="let time of times" [value]="time">
+                {{time}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+ 
+    <div class="form-group">
+        <mat-form-field class="demo-full-width">
+            <input matInput placeholder="Lieu" class="form-control" required name="place" [formControl]="myForm.controls['place']">
+        </mat-form-field>
+    </div>
+    <div class="form-group" *ngIf="type === 'select'" class="form-group">
+        <mat-form-field>
+            <mat-select placeholder="Objectif" [formControl]="myForm.controls['objectif']" (selectionChange)="onChange($event)" [(value)]="objectif">
+            <mat-option *ngFor="let objectif of objectifs$ | async" [value]="objectif" [ngStyle]="{'background-color': objectif.color, 'width': '100%'}">{{objectif.title}}</mat-option>
+            </mat-select>
+            <mat-hint *ngIf="selectedObjectif != null"> {{myForm.controls['objectif'].value?.start}} à {{myForm.controls['objectif'].value?.end}}</mat-hint>
+        </mat-form-field>
+    </div>
+    <div *ngIf="type === 'select'" class="form-group">
+        <button id="createButton" mat-raised-button type="submit" [disabled]="!myForm.valid" color="primary">Créer une tache</button>
+    </div>
+</form>
+<div *ngIf="type !== 'select'" class="form-group">
+    <button id="updateButton" mat-raised-button color="primary" (click)="updateTask(myForm.value)">Modifier</button>
+    <button id="deleteButton" (click)="deleteTask(task)" mat-raised-button color="primary">Supprimer</button>
+</div>

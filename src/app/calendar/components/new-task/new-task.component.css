@@ -1,0 +1,36 @@
+
+
+form{
+    width: 100%;
+}
+
+form #createButton{
+    width: 100%;
+}
+
+form .form-group{
+    width: 100%;
+}
+
+form .form-group #date{
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+}
+mat-form-field{
+    width: 100%;
+}
+form .form-group #time{
+    width: 48%;
+    float: right;
+}
+
+.form-group #updateButton{
+    width: 70%;
+    float: left;
+}
+
+.form-group #deleteButton{
+    width: 20%;
+    float: right;
+}

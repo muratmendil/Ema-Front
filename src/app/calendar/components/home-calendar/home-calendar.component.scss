@@ -1,0 +1,42 @@
+
+#calendar{
+    margin: 0 auto;
+    top: 20px;
+    position: relative;
+    height: 100%;
+}
+
+thread{
+    border-color: beige !important;
+}
+
+.fc-head-container , .fc-widget-headerfc-head-container{
+    border: none !important;
+}
+
+.fc-row{
+    border-color: #eee !important;
+}
+
+.objectifBtn{
+    position: absolute;
+    right: 69px;
+    bottom: 18px;
+    z-index: 1000;
+}
+
+mat-drawer{
+    width: 177px;
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+
+.home-container { 
+    height: 100%;
+}
+
+.custom-mat-fab {
+    bottom: 80px;
+}
